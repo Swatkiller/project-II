@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+body {
+  background-color: #a5b5bf;
+}
+
+.attendance_topic {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+}
+
+.attendance_topic h1 {
+  background-color: #444444;
+  color: #ffffff;
+  text-align: center;
+  height: 60px;
+  width: 1150px;
+  font-family: "Inter", Courier, sans-serif;
+  border-radius: 20px;
+  font-size: xx-large;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 220px;
+  gap: 130px;
+}
+
+.admin_img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 220px;
+  height: 225px;
+  width: 250px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.student-details-container,
+.qr-container,
+.attendance-container {
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn0 {
+  display: block;
+  margin: 20px auto 0;
+  height: 50px;
+  width: 100%;
+  max-width: 170px;
+  font-weight: 500;
+  border-radius: 20px;
+  background-color: #444444;
+  color: #ddd;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-effect:hover .admin_img {
+  transform: scale(1.05);
+}
+
+.hover-effect:hover .btn0 {
+  transform: translateY(-2.5px);
+}
+
+.logout_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 1320px;
+  height: 50px;
+  width: 100%;
+  max-width: 150px;
+  font-weight: 700;
+  border-radius: 20px;
+  background-color: #444444;
+  color: #ddd;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout_btn:hover {
+  transform: scale(1.03);
+}
+
+.icon-medium {
+  margin-left: 8px;
+  font-size: 30px;
+}

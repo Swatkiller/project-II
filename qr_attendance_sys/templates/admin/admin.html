@@ -1,0 +1,47 @@
+<?php
+require 'db.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+
+<body>
+    <button class="logout_btn">LogOut <ion-icon size="small" name="log-out" class="icon-medium"></ion-icon></button>
+    <div class="attendance_topic">
+        <h1>QR-BASED ATTENDANCE SYSTEM</h1>
+    </div>
+    <div class="images container">
+        <div class="row">
+            <div class="col-md-4 student-registration-container hover-effect">
+                <img src="images/student_registration.png" alt="Student Registration" class="admin_img">
+                <button class="btn0">Register Student</button>
+            </div>
+
+            <div class="col-md-4 attendance-container hover-effect">
+                <img src="images/attendance.jpeg" alt="Attendance" class="admin_img">
+                <button class="btn0">Manual Attendance</button>
+            </div>
+
+            <div class="col-md-4 qr-container hover-effect">
+                <img src="images/qr_scanner.png" alt="QR Scanner" class="admin_img">
+                <button class="btn0">QR Scanner</button>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+
+</html>
