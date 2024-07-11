@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password ="";
-$dbname = "qr_attendance";
+$dbname = "attendance_system";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn -> connect_error){
