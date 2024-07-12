@@ -1,7 +1,3 @@
-<?php
-require '../../db.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +18,7 @@ require '../../db.php';
     <a class="logo-brand" href="./admin.php">
         <img class="logo" src="./images/logo.png" alt="logo" />
     </a>
-    <button class="logout_btn">LogOut <i class="fa-solid fa-right-from-bracket"></i></button>
+    <button type="submit" class="logout_btn">LogOut <i class="fa-solid fa-right-from-bracket"></i></button>
 </div>
 
 <div class="attendance_topic">
