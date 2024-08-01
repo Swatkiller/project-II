@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="icon" class="image/x-icon" href="./images/logo.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/style.css">
+    <?php include './header.php'?>
 </head>
 
 <body>
@@ -28,7 +25,7 @@
 <div class="image-container container">
     <div class="row">
         <div class="col-md-3 student-registration-container hover-effect">
-            <a href="./registration.html" class="btn0-container">
+            <a href="./registration.php" class="btn0-container">
                 <img src="images/registration.jpeg" alt="Student Registration" class="admin_img">
                 <button class="btn0">Register Student</button>
             </a>
@@ -49,10 +46,9 @@
         </div>
 
         <div class="col-md-3 qr-container hover-effect">
-            <a href="#" class="btn0-container">
-                <img src="images/qr_scanner.png" alt="QR Scanner Test" class="admin_img">
-                <button class="btn0">Scanning Test</button>
-            </a>
+            <a href="./view_qr.html" class="btn0-container">
+                <img src="images/qrscanner1.jpg" alt="QR Scanner Test" class="admin_img">
+                <button class="btn0">View QR-Codes
         </div>
     </div>
 </div>

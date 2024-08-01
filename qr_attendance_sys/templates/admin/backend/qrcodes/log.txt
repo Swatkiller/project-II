@@ -1,0 +1,24 @@
+Command: python3 ^"./generate_qr.py^" 35 ^"A^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_35.png
+
+Command: python3 ^"./generate_qr.py^" 36 ^"A^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_36.png
+
+Command: python3 ^"./generate_qr.py^" 37 ^"A^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_37.png
+
+Command: python3 ^"./generate_qr.py^" 38 ^"B^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_38.png
+
+Command: python3 ^"./generate_qr.py^" 39 ^"B^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_39.png
+
+Command: python3 ^"./generate_qr.py^" 40 ^"B^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_40.png
+
+Command: python3 ^"./generate_qr.py^" 41 ^"B^" ^"10^"
+Output: QR code generated and saved at ./qrcodes/student_41.png
+
+Command: python3 ^"./generate_qr.py^" 42 ^"D^" ^"1^"
+Output: QR code generated and saved at ./qrcodes/student_42.png
+
