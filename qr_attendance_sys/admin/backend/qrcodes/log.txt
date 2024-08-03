@@ -22,3 +22,9 @@ Output: QR code generated and saved at ./qrcodes/student_41.png
 Command: python3 ^"./generate_qr.py^" 42 ^"D^" ^"1^"
 Output: QR code generated and saved at ./qrcodes/student_42.png
 
+Command: python3 ^"./generate_qr.py^" 43 ^"C^" ^"3^"
+Output: QR code generated and saved at ./qrcodes/student_43.png
+
+Command: python3 ^"./generate_qr.py^" 44 ^"D^" ^"5^"
+Output: QR code generated and saved at ./qrcodes/student_44.png
+

@@ -1,4 +1,0 @@
-
-Command: python3 ^"./generate_qr.py^" 34 ^"a^" ^"10^"
-Output: QR code generated and saved at ./qrcodes/student_34.png
-

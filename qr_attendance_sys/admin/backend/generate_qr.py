@@ -24,7 +24,6 @@ qr = qrcode.QRCode(
 qr.add_data(qr_data)
 qr.make(fit=True)
 
-# Ensure the output directory exists
 import os
 output_dir = "./qrcodes/"
 os.makedirs(output_dir, exist_ok=True)

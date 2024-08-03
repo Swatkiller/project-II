@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image_path = NULL;
     }
 
-    $section = ucwords($section); //capitalize section
+    $section = ucwords($section); //capitalize section input
 
     // insert statement for student details
     $stmt = $conn->prepare("INSERT INTO student_details (first_name, last_name, address, image, fathers_name, mothers_name, section, grade, gender, dob, mobileno, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
