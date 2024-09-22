@@ -233,13 +233,14 @@ a.btn0-container:hover {
 #uploadedImage {
   position: absolute;
   top: -25px;
-  left: 40px;
+  left: 30px;
   width: auto;
   height: 100%;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: none;
+  cursor: pointer;
 }
 
 .position-relative {

@@ -1,17 +1,9 @@
 function showImage(event) {
-  var uploadInput = document.getElementById("uploadImage");
-  var image = document.getElementById("uploadedImage");
-  var uploadIcon = document.querySelector(".upload-icon");
-  var file = event.target.files[0];
-
-  if (file) {
-    image.src = URL.createObjectURL(file);
-    image.style.display = "block";
-    uploadIcon.style.display = "none";
-  } else {
-    image.style.display = "none";
-    uploadIcon.style.display = "block";
-  }
+  const uploadedImage = document.getElementById("uploadedImage");
+  uploadedImage.src = URL.createObjectURL(event.target.files[0]);
+  uploadedImage.style.display = "block";
+  // Optionally hide the upload icon
+  document.querySelector(".upload-icon").style.display = "none";
 }
 
 function resetForm() {

@@ -23,9 +23,9 @@
         </div>
         <div class="login">
             <form>
-                <label for="chk" aria-hidden="true">LogIn</label>
+                <label for="chk" aria-hidden="true">Log In</label>
                 <input type="text" name="username" placeholder="Username" required="">
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required="">
                 <button>LogIn</button>
             </form>
         </div>

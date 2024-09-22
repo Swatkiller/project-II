@@ -8,12 +8,12 @@
     <link rel="icon" class="image/x-icon" href="./images/logo.png">
 
    <?php require './header.php'?>
-    <script src="../../static/js/script.js"></script>
+    <script src="../static/js/script.js"></script>
 </head>
 
 <body>
     <div class="brand-container">
-        <a class="logo-brand" href="./admin.php">
+        <a class="logo-brand" href="./dashboard.php">
             <img class="logo" src="./images/logo.png" alt="logo" />
         </a>
         <button class="logout_btn">LogOut <i class="fa-solid fa-right-from-bracket"></i></button>
@@ -59,9 +59,8 @@
                                                                 class="upload-icon" />
                                                         </label>
                                                         <img id="uploadedImage" src="#" alt="Uploaded Image"
-                                                            class="uploaded-image" />
+                                                            class="uploaded-image" onclick="document.getElementById('uploadImage').click();" />
                                                     </div>
-                                                    <figcaption>Upload Image</figcaption>
                                                 </div>
                                             </div>
 
@@ -93,17 +92,17 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 mb-2">
-                                                    <div class="form-outline mb-2">
-                                                        <input type="text" id="section"
-                                                            class="form-control form-control-lg" name="section" placeholder="A-B-C-D"/>
-                                                        <label class="form-label" for="section">Section</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 mb-2">
                                                     <div class="form-outline">
                                                         <input type="text" id="grade"
                                                             class="form-control form-control-lg" name="grade" placeholder="1-10"/>
                                                         <label class="form-label" for="grade">Grade</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="form-outline mb-2">
+                                                        <input type="text" id="section"
+                                                            class="form-control form-control-lg" name="section" placeholder="A-B-C-D"/>
+                                                        <label class="form-label" for="section">Section</label>
                                                     </div>
                                                 </div>
                                             </div>

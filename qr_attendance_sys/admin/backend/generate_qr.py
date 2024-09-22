@@ -1,12 +1,10 @@
 import sys
 import qrcode
 
-# Ensure the script is called with the correct number of arguments
 if len(sys.argv) != 4:
     print("Usage: generate_qr.py <id> <grade> <section>")
     sys.exit(1)
 
-# Get the arguments
 student_id = sys.argv[1]
 grade = sys.argv[2]
 section = sys.argv[3]

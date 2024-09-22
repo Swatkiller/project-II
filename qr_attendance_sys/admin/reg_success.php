@@ -121,7 +121,9 @@ $full_name = isset($_GET['full_name']) ? $_GET['full_name'] : 'Student';
         function updateCountdown() {
             document.getElementById('countdown').innerText = countdown;
             if (countdown <= 0) {
-                window.location.href = 'qr_show.php?id=<?php echo $last_id; ?>'; // Correctly use PHP to embed the variable
+                
+                window.location.href = './backend/show_qr.php?id=<?php echo $last_id; ?>&full_name=<?php echo urlencode($full_name); ?>';
+
             } else {
                 countdown--;
                 setTimeout(updateCountdown, 1000);
