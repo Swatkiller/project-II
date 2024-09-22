@@ -46,9 +46,9 @@
         </div>
 
         <div class="col-md-3 qr-container hover-effect">
-            <a href="./view_qr.html" class="btn0-container">
+            <a href="./view_qr.php" class="btn0-container">
                 <img src="images/qrscanner1.jpg" alt="QR Scanner Test" class="admin_img">
-                <button class="btn0">View QR-Codes
+                <button class="btn0">View QR-Codes </button>
         </div>
     </div>
 </div>

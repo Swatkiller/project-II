@@ -79,3 +79,18 @@ Output: QR code generated and saved at ./qrcodes/student_2.png
 Command: python3 ^"./generate_qr.py^" 12 ^"1^" ^"A^"
 Output: QR code generated and saved at ./qrcodes/student_12.png
 
+Command: python3 ^"./generate_qr.py^" 13 ^"5^" ^"A^"
+Output: python3: can't open file 'C:\Program Files\Ampps\www\project-II\qr_attendance_sys\admin\backend\generate_qr.py': [Errno 2] No such file or directory
+
+Command: python3 ^"./generate_qr.py^" 14 ^"7^" ^"D^"
+Output: QR code generated and saved at ./qrcodes/student_14.png
+
+Command: python3 ^"./generate_qr.py^" 15 ^"8^" ^"A^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_15.png
+
+Command: python3 ^"./generate_qr.py^" 16 ^"1^" ^"A^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_16.png
+
+Command: python3 ^"./generate_qr.py^" 17 ^"1^" ^"A^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_17.png
+

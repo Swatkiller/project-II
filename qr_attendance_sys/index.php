@@ -15,6 +15,15 @@ if ($conn->connect_error) {
 // Fetch notices
 $sql = "SELECT title, description, posted_on FROM notices ORDER BY posted_on DESC";
 $result = $conn->query($sql);
+
+// Handle POST request to trigger the Python QR code scanner
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Execute the Python script to open the camera and scan the QR code
+    $output = shell_exec('python3 "C:/Program Files/Ampps/www/project-II/qr_attendance_sys/scan_qr.py" 2>&1');
+    
+    // Display the output from the Python script (e.g., scanned QR code data)
+    echo "<pre>$output</pre>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +129,7 @@ $result = $conn->query($sql);
     ?>
 
     <!-- Button to trigger Python script -->
-    <form action="trigger_python.php" method="POST">
+    <form method="POST" action="">
         <button type="submit" class="mark_attendance">Mark Your Attendance</button>
     </form>
 
