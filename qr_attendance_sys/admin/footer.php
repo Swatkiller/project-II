@@ -1,6 +1,6 @@
 <footer class="footer-container">
 
-<h6>Welcome to my <U>QR-BASED ATTENDANCE SYSTEM</U></h6>
+<h6>Welcome to <U>QR-BASED ATTENDANCE SYSTEM</U></h6>
 <h6>COPYRIGHT @ MZN - 2024</h6>
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

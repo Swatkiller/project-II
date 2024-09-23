@@ -94,3 +94,62 @@ Output: Encrypted QR code generated and saved at ./qrcodes/student_16.png
 Command: python3 ^"./generate_qr.py^" 17 ^"1^" ^"A^"
 Output: Encrypted QR code generated and saved at ./qrcodes/student_17.png
 
+Command: python3 ^"./generate_qr.py^" 18 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_18.png
+Key and IV saved in student_18_key_iv.txt
+
+Command: python3 ^"./generate_qr.py^" 19 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_19.png
+Key and IV saved at ./qrcodes/student_19_key.txt
+
+Command: python3 ^"./generate_qr.py^" 20 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_20.png
+Key and IV saved at ./qrcodes/student_20_key.txt
+
+Command: python3 ^"./generate_qr.py^" 21 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_21.png
+Key and IV saved at ./qrcodes/student_21_key.txt
+
+Command: python3 ^"./generate_qr.py^" 22 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_22.png
+Encryption key and IV have been stored in the database.
+
+Command: python3 ^"./generate_qr.py^" 23 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_23.png
+
+Command: python3 ^"./generate_qr.py^" 24 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_24.png
+
+Command: python3 ^"./generate_qr.py^" 25 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_25.png
+
+Command: python3 ^"./generate_qr.py^" 26 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_26.png
+
+Command: python3 ^"./generate_qr.py^" 27 ^"2^" ^"D^"
+Output: Traceback (most recent call last):
+  File "C:\Program Files\Ampps\www\project-II\qr_attendance_sys\admin\backend\generate_qr.py", line 49, in <module>
+    encrypted_qr_data = encrypt_data(qr_data, key)
+TypeError: encrypt_data() missing 1 required positional argument: 'iv'
+
+Command: python3 ^"./generate_qr.py^" 29 ^"2^" ^"D^"
+Output: Traceback (most recent call last):
+  File "C:\Program Files\Ampps\www\project-II\qr_attendance_sys\admin\backend\generate_qr.py", line 49, in <module>
+    encrypted_qr_data = encrypt_data(qr_data, key)
+TypeError: encrypt_data() missing 1 required positional argument: 'iv'
+
+Command: python3 ^"./generate_qr.py^" 30 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_30.png
+
+Command: python3 ^"./generate_qr.py^" 31 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_31.png
+
+Command: python3 ^"./generate_qr.py^" 32 ^"1^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_32.png
+
+Command: python3 ^"./generate_qr.py^" 33 ^"1^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_33.png
+
+Command: python3 ^"./generate_qr.py^" 34 ^"4^" ^"A^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_34.png
+

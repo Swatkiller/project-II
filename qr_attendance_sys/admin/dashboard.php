@@ -39,7 +39,7 @@
         </div>
 
         <div class="col-md-3 manage-students hover-effect">
-            <a href="./manage_students.html" class="btn0-container">
+            <a href="./manage_students.php" class="btn0-container">
                 <img src="images/manage_students.png" alt="Manage Students" class="admin_img">
                 <button class="btn0">Manage Student</button>
             </a>

@@ -4,6 +4,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 import os
 import base64
+from cryptography.hazmat.primitives import padding
 
 # Ensure the script is called with the correct number of arguments
 if len(sys.argv) != 4:
@@ -15,34 +16,34 @@ student_id = sys.argv[1]
 grade = sys.argv[2]
 section = sys.argv[3]
 
-# Create the QR code data
-qr_data = f"ID: {student_id}\nGrade: {grade}\nSection: {section}"
+# Create the QR code data, using 'sid' for student_id
+qr_data = f"sid: {student_id}\nGrade: {grade}\nSection: {section}"
 
-# Generate a random 16-byte key for AES encryption
-key = os.urandom(16)
+# Hardcoded AES key and IV
+key = b'\x97\xc9I\xd3\xfe\xbe2\x00\x97-TU\x8e\xfd/2'  # 16 bytes for AES-128
+iv = b'\x9eCyW\xd2\xb0\x9eO)\x0e\xa5\xf5\xdc\xf4\xde"'  # 16 bytes for IV
 
 # Function to encrypt data using AES
-def encrypt_data(data, key):
-    # Convert the data to bytes if it's a string
+def encrypt_data(data, key, iv):
     if isinstance(data, str):
         data = data.encode('utf-8')
 
-    # Generate a random IV
-    iv = os.urandom(16)
-
-    # Initialize the AES cipher in CFB mode
-    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
+    # Initialize the AES cipher in CBC mode
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
     encryptor = cipher.encryptor()
 
+    # Apply PKCS7 padding
+    padder = padding.PKCS7(algorithms.AES.block_size).padder()
+    padded_data = padder.update(data) + padder.finalize()
+
     # Encrypt the data
-    encrypted_data = encryptor.update(data) + encryptor.finalize()
+    encrypted_data = encryptor.update(padded_data) + encryptor.finalize()
 
-    # Return the IV + encrypted data, encoded as base64
-    return base64.b64encode(iv + encrypted_data).decode('utf-8')
-
+    # Return the encrypted data, encoded as base64
+    return base64.b64encode(encrypted_data).decode('utf-8')
 
 # Encrypt the QR data
-encrypted_qr_data = encrypt_data(qr_data, key)
+encrypted_qr_data = encrypt_data(qr_data, key, iv)
 
 # Generate the QR code with encrypted data
 qr = qrcode.QRCode(

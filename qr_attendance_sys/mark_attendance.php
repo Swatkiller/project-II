@@ -1,11 +1,10 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username = "root";
-$password = "mysql";
-$dbname = "attendance_sys";
+$username = "root"; // replace with your database username
+$password = "mysql"; // replace with your database password
+$dbname = "attendance_sys"; // replace with your database name
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
@@ -13,34 +12,34 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get the JSON data from the POST request
-$data = json_decode(file_get_contents('php://input'), true);
+// Retrieve the data from the POST request
+$sid = isset($_POST['sid']) ? intval($_POST['sid']) : 0;
+$grade = isset($_POST['grade']) ? $_POST['grade'] : '';
+$section = isset($_POST['section']) ? $_POST['section'] : '';
 
-if (isset($data['qr_code_data'])) {
-    // Example: The decrypted QR code data contains the student ID, grade, and section
-    $qr_code_data = $data['qr_code_data'];
-    
-    // Assuming your QR code contains: ID, Grade, and Section separated by newlines
-    list($id_line, $grade_line, $section_line) = explode("\n", $qr_code_data);
+// Validate input
+if ($sid > 0 && !empty($grade) && !empty($section)) {
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO attendance (sid, date, status) VALUES (?, CURDATE(), 'Present')");
+    $stmt->bind_param("i", $sid);
 
-    // Extract student ID from the first line (e.g., "ID: 12345")
-    $student_id = trim(str_replace("ID:", "", $id_line));
-
-    // Set the current date
-    $current_date = date('Y-m-d');
-
-    // Mark attendance as "present" for this student for today's date
-    $sql = "INSERT INTO attendance (student_id, date, status) 
-            VALUES ('$student_id', '$current_date', 'present')
-            ON DUPLICATE KEY UPDATE status='present'";
-
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(['success' => true, 'message' => 'Attendance marked successfully!']);
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Redirect to success page
+        header("Location: success.php?message=Attendance marked successfully.");
+        exit();
     } else {
-        echo json_encode(['success' => false, 'message' => 'Error marking attendance: ' . $conn->error]);
+        // Redirect to error page
+        header("Location: error.php?message=Error marking attendance: " . urlencode($stmt->error));
+        exit();
     }
+
+    // Close the statement
+    $stmt->close();
 } else {
-    echo json_encode(['success' => false, 'message' => 'Invalid data received']);
+    // Redirect to error page
+    header("Location: error.php?message=Invalid data received.");
+    exit();
 }
 
 // Close the database connection
