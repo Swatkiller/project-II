@@ -34,8 +34,8 @@ def simple_qr_scanner():
     cam.set(3, 640)  # Width
     cam.set(4, 480)  # Height
 
-    scanned_sids = set()  # Set to keep track of scanned student IDs
-    qr_scanned = False  # Flag to indicate if a QR code has been scanned
+    scanned_sids = set()  
+    qr_scanned = False  
 
     while True:
         success, frame = cam.read()
@@ -60,12 +60,11 @@ def simple_qr_scanner():
                     scanned_sids.add(sid)  # Add sid to the set
                     print(f"Scanned and processed sid: {sid}")
 
-                    # Optionally, draw a rectangle around the detected QR code
                     (x, y, w, h) = barcode.rect
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                    time.sleep(1)  # Wait for 1 second before continuing
+                    time.sleep(1)  
 
-                    qr_scanned = True  # Set the flag to True
+                    qr_scanned = True 
                     break  # Exit the for loop
 
         # Display the frame
@@ -80,9 +79,9 @@ def simple_qr_scanner():
     cv2.destroyAllWindows()
 
 def extract_sid_from_data(encrypted_data):
-    decrypted_data = decrypt_data(encrypted_data)  # Now defined
+    decrypted_data = decrypt_data(encrypted_data) 
     lines = decrypted_data.split("\n")
-    sid = lines[0].split(": ")[1]  # Adjust according to your data format
+    sid = lines[0].split(": ")[1]  
     return sid
 
 if __name__ == "__main__":

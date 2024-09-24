@@ -1,9 +1,9 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username = "root"; // replace with your database username
-$password = "mysql"; // replace with your database password
-$dbname = "attendance_sys"; // replace with your database name
+$username = "root"; 
+$password = "mysql"; 
+$dbname = "attendance_sys";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -19,17 +19,30 @@ $section = isset($_POST['section']) ? $_POST['section'] : '';
 
 // Validate input
 if ($sid > 0 && !empty($grade) && !empty($section)) {
-    // Prepare and bind
+    // Check if attendance has already been marked for this student today
+    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM attendance WHERE sid = ? AND date = CURDATE()");
+    $stmt->bind_param("i", $sid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if ($row['count'] > 0) {
+        // Attendance already marked for today, redirect to error page
+        header("Location: error.php?message=Attendance already marked for today.");
+        exit();
+    }
+
+    // Prepare and bind the insert statement if attendance is not already marked
     $stmt = $conn->prepare("INSERT INTO attendance (sid, date, status) VALUES (?, CURDATE(), 'Present')");
     $stmt->bind_param("i", $sid);
 
-    // Execute the statement
+    // Execute the insert statement
     if ($stmt->execute()) {
         // Redirect to success page
         header("Location: success.php?message=Attendance marked successfully.");
         exit();
     } else {
-        // Redirect to error page
+        // Redirect to error page with SQL error message
         header("Location: error.php?message=Error marking attendance: " . urlencode($stmt->error));
         exit();
     }
@@ -37,11 +50,10 @@ if ($sid > 0 && !empty($grade) && !empty($section)) {
     // Close the statement
     $stmt->close();
 } else {
-    // Redirect to error page
+    // Redirect to error page for invalid input data
     header("Location: error.php?message=Invalid data received.");
     exit();
 }
 
-// Close the database connection
 $conn->close();
 ?>

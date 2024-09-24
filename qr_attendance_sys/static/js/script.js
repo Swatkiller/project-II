@@ -15,8 +15,8 @@ function resetForm() {
   var uploadIcon = document.querySelector(".upload-icon");
   var uploadInput = document.getElementById("uploadImage");
 
-  uploadInput.value = "";
-  image.src = "#";
-  image.style.display = "none";
-  uploadIcon.style.display = "block";
+  uploadInput.value = ""; // Clear the file input
+  image.src = "https://via.placeholder.com/150"; // Reset to placeholder
+  image.style.display = "none"; // Hide the image
+  uploadIcon.style.display = "block"; // Show the upload icon
 }
