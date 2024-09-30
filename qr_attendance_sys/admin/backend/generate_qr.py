@@ -6,12 +6,10 @@ import os
 import base64
 from cryptography.hazmat.primitives import padding
 
-# Ensure the script is called with the correct number of arguments
 if len(sys.argv) != 4:
     print("Usage: generate_qr.py <id> <grade> <section>")
     sys.exit(1)
 
-# Get the arguments
 student_id = sys.argv[1]
 grade = sys.argv[2]
 section = sys.argv[3]
@@ -28,7 +26,6 @@ def encrypt_data(data, key, iv):
     if isinstance(data, str):
         data = data.encode('utf-8')
 
-    # Initialize the AES cipher in CBC mode
     cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
     encryptor = cipher.encryptor()
 

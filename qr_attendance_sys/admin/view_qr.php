@@ -25,6 +25,8 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View QR Codes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" class="image/x-icon" href="./images/logo.png">
+    <?php include './header.php'?>
     <style>
         body {
             background-color: #a5b5bf;
@@ -47,8 +49,11 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-<a href="dashboard.php" class="btn btn-secondary back-button">Back to Dashboard</a>
-
+<div class="brand-container">
+    <a class="logo-brand" href="./dashboard.php">
+        <img class="logo" src="./images/logo.png" alt="logo" />
+    </a>
+</div>
 <div class="container">
     <h1 class="text-center">Students QR Codes</h1>
     <table class="table table-striped">

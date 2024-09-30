@@ -1,4 +1,5 @@
 <?php
+session_start(); // Start the session
 require "./db_connection.php";
 require "../header.php";
 
@@ -14,6 +15,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dob = isset($_POST['dob']) ? $_POST['dob'] : NULL;
     $mobile_no = $_POST['mobile_no'];
     $email = $_POST['email'];
+
+    // Check for duplicate email
+    $checkEmailStmt = $conn->prepare("SELECT * FROM student_details WHERE email = ?");
+    if (!$checkEmailStmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+    $checkEmailStmt->bind_param("s", $email);
+    $checkEmailStmt->execute();
+    $result = $checkEmailStmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Email already exists, store data in session
+        $_SESSION['form_data'] = $_POST; // Store the entire form data
+        echo "<script>alert('This email address is already registered. Please use a different email.'); window.location.href='../registration.php';</script>";
+        exit();
+    }
 
     // Handle image upload
     if ($_FILES['profile_image']['name']) {
@@ -85,5 +102,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close();
     $conn->close();
+}
+
+// Clear session data after it's used in registration.php
+if (isset($_SESSION['form_data'])) {
+    $form_data = $_SESSION['form_data'];
+    unset($_SESSION['form_data']); // Clear session data
+} else {
+    $form_data = []; // Empty array if no data
 }
 ?>

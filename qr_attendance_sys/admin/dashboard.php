@@ -15,7 +15,6 @@
     <a class="logo-brand" href="./dashboard.php">
         <img class="logo" src="./images/logo.png" alt="logo" />
     </a>
-    <button type="submit" class="logout_btn">LogOut <i class="fa-solid fa-right-from-bracket"></i></button>
 </div>
 
 <div class="attendance_topic">
@@ -32,7 +31,7 @@
         </div>
 
         <div class="col-md-3 attendance-container hover-effect">
-            <a href="./manage_students.html" class="btn0-container">
+            <a href="./manage_attendance.php" class="btn0-container">
                 <img src="images/attendance.png" alt="Attendance" class="admin_img">
                 <button class="btn0">Manage Attendance</button>
             </a>

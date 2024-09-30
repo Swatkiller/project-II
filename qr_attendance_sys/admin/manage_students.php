@@ -36,6 +36,8 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Students</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" class="image/x-icon" href="./images/logo.png">
+    <?php include './header.php'?>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,6 +51,15 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-brand img {
+            margin-bottom: 30px;
+            margin-left: -20px;
+            max-width: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         }
         h1 {
             text-align: center;
@@ -111,7 +122,11 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 </head>
 <body>
 
-<a href="dashboard.php" class="btn btn-secondary back-button">Back to Dashboard</a>
+<div class="brand-container">
+    <a class="logo-brand" href="./dashboard.php">
+        <img class="logo" src="./images/logo.png" alt="logo" />
+    </a>
+</div>
 
 <h1>Student List</h1>
 <div class="container">

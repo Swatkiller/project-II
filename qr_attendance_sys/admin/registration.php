@@ -34,7 +34,6 @@
         <a class="logo-brand" href="./dashboard.php">
             <img class="logo" src="./images/logo.png" alt="logo" />
         </a>
-        <button class="logout_btn">LogOut <i class="fa-solid fa-right-from-bracket"></i></button>
     </div>
 
     <div class="attendance_topic">
@@ -145,10 +144,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-outline mb-2">
-                                                        <input type="email" id="email" class="form-control form-control-lg" name="email" placeholder="******@gmail.com" required />
-                                                        <label class="form-label" for="email">Email ID</label>
-                                                    </div>
+                                                <div class="form-outline mb-2">
+                                                    <input type="email" 
+                                                           id="email" 
+                                                           class="form-control form-control-lg" 
+                                                           name="email" 
+                                                           placeholder="******@gmail.com" 
+                                                           required 
+                                                           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                                                           title="Please enter a valid email address." />
+                                                    <label class="form-label" for="email">Email ID</label>
+                                                </div>
+
                                                 </div>
                                             </div>
 

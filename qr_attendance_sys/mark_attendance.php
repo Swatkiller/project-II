@@ -14,11 +14,9 @@ if ($conn->connect_error) {
 
 // Retrieve the data from the POST request
 $sid = isset($_POST['sid']) ? intval($_POST['sid']) : 0;
-$grade = isset($_POST['grade']) ? $_POST['grade'] : '';
-$section = isset($_POST['section']) ? $_POST['section'] : '';
 
 // Validate input
-if ($sid > 0 && !empty($grade) && !empty($section)) {
+if ($sid > 0) {
     // Check if attendance has already been marked for this student today
     $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM attendance WHERE sid = ? AND date = CURDATE()");
     $stmt->bind_param("i", $sid);
@@ -28,7 +26,7 @@ if ($sid > 0 && !empty($grade) && !empty($section)) {
 
     if ($row['count'] > 0) {
         // Attendance already marked for today, redirect to error page
-        header("Location: error.php?message=Attendance already marked for today.");
+        header("Location: error.php?message=" . urlencode("Attendance already marked for today."));
         exit();
     }
 
@@ -39,11 +37,11 @@ if ($sid > 0 && !empty($grade) && !empty($section)) {
     // Execute the insert statement
     if ($stmt->execute()) {
         // Redirect to success page
-        header("Location: success.php?message=Attendance marked successfully.");
+        header("Location: success.php?message=" . urlencode("Attendance marked successfully."));
         exit();
     } else {
         // Redirect to error page with SQL error message
-        header("Location: error.php?message=Error marking attendance: " . urlencode($stmt->error));
+        header("Location: error.php?message=" . urlencode("Error marking attendance: " . $stmt->error));
         exit();
     }
 
@@ -51,9 +49,10 @@ if ($sid > 0 && !empty($grade) && !empty($section)) {
     $stmt->close();
 } else {
     // Redirect to error page for invalid input data
-    header("Location: error.php?message=Invalid data received.");
+    header("Location: error.php?message=" . urlencode("Invalid data received."));
     exit();
 }
 
+// Close the database connection
 $conn->close();
 ?>
