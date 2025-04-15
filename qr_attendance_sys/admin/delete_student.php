@@ -1,9 +1,9 @@
 <?php
 // Database connection details
 $servername = "localhost";
-$username = "root"; 
-$password = "mysql"; 
-$dbname = "attendance_sys"; 
+$username = "root";
+$password = "";
+$dbname = "attendance_sys";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

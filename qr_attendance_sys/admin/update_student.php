@@ -5,7 +5,7 @@ session_start();
 // Database connection details
 $servername = "localhost";
 $username = "root";
-$password = "mysql";
+$password = "";
 $dbname = "attendance_sys";
 
 // Create connection

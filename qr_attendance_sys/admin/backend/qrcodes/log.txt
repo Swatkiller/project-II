@@ -186,3 +186,15 @@ Output: Encrypted QR code generated and saved at ./qrcodes/student_44.png
 Command: python3 ^"./generate_qr.py^" 49 ^"4^" ^"D^"
 Output: Encrypted QR code generated and saved at ./qrcodes/student_49.png
 
+Command: python3 ^"./generate_qr.py^" 50 ^"5^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_50.png
+
+Command: python3 ^"./generate_qr.py^" 51 ^"3^" ^"C^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_51.png
+
+Command: python3 ^"./generate_qr.py^" 52 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_52.png
+
+Command: python3 ^"./generate_qr.py^" 53 ^"2^" ^"D^"
+Output: Encrypted QR code generated and saved at ./qrcodes/student_53.png
+

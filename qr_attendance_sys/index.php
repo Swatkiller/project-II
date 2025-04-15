@@ -2,7 +2,7 @@
 // Database connection
 $servername = "localhost";
 $username = "root";
-$password = "mysql";
+$password = "";
 $dbname = "attendance_sys";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Execute the Python script to open the camera and scan the QR code
     $output = shell_exec('python3 "C:/Program Files/Ampps/www/project-II/qr_attendance_sys/scan_qr.py" 2>&1');
-    
+
     // Display the output from the Python script (e.g., scanned QR code data)
     echo "<pre>$output</pre>";
 }
@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 0;
             padding: 0;
         }
+
         .container {
             width: 90%;
             max-width: 1200px;
@@ -51,35 +53,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
+
         h1 {
             text-align: center;
             font-weight: 600;
             color: #4a4a7d;
             margin-bottom: 30px;
         }
+
         .notice {
             padding: 20px;
             border-bottom: 1px solid #e1e1e1;
             transition: background-color 0.3s ease;
         }
+
         .notice:hover {
             background-color: #f0f8ff;
         }
+
         .notice h2 {
             color: #4a4a7d;
             font-weight: 600;
             margin: 0 0 10px;
         }
+
         .notice p {
             color: #555;
             font-weight: 300;
         }
+
         .notice small {
             color: #888;
             font-weight: 300;
             display: block;
             margin-top: 10px;
         }
+
         .mark_attendance {
             display: inline-block;
             margin: 30px auto 0;
@@ -95,10 +104,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .mark_attendance:hover {
             background-color: #3b3b6d;
             transform: translateY(-2px);
         }
+
         .footer {
             text-align: center;
             margin-top: 50px;
@@ -107,36 +118,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Latest Admin Notices</h1>
+    <div class="container">
+        <h1>Latest Admin Notices</h1>
 
-    <?php
-    if ($result->num_rows > 0) {
-        // Output each notice
-        while($row = $result->fetch_assoc()) {
-            echo "<div class='notice'>";
-            echo "<h2>" . $row["title"] . "</h2>";
-            echo "<p>" . $row["description"] . "</p>";
-            echo "<small>Posted on: " . $row["posted_on"] . "</small>";
-            echo "</div>";
+        <?php
+        if ($result->num_rows > 0) {
+            // Output each notice
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='notice'>";
+                echo "<h2>" . $row["title"] . "</h2>";
+                echo "<p>" . $row["description"] . "</p>";
+                echo "<small>Posted on: " . $row["posted_on"] . "</small>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No notices available at the moment.</p>";
         }
-    } else {
-        echo "<p>No notices available at the moment.</p>";
-    }
-    $conn->close();
-    ?>
+        $conn->close();
+        ?>
 
-    <!-- Button to trigger Python script -->
-    <form method="POST" action="">
-        <button type="submit" class="mark_attendance">Mark Your Attendance</button>
-    </form>
+        <!-- Button to trigger Python script -->
+        <form method="POST" action="">
+            <button type="submit" class="mark_attendance">Mark Your Attendance</button>
+        </form>
 
-    <div class="footer">
-        &copy; <?php echo date('Y'); ?> Admin Panel | All Rights Reserved
+        <div class="footer">
+            &copy; <?php echo date('Y'); ?> Admin Panel | All Rights Reserved
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>

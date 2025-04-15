@@ -2,7 +2,7 @@
 // Database connection details
 $servername = "localhost";
 $username = "root"; // replace with your database username
-$password = "mysql"; // replace with your database password
+$password = ""; // replace with your database password
 $dbname = "attendance_sys"; // replace with your database name
 
 // Create connection
@@ -28,7 +28,7 @@ if (!empty($sid)) {
     if ($result_student->num_rows > 0) {
         $student = $result_student->fetch_assoc();
         $student_name = $student['first_name'] . ' ' . $student['last_name'];
-        
+
         // Fetch total present days
         $sql_attendance = "SELECT COUNT(*) as total_present FROM attendance WHERE sid = ? AND status = 'Present'";
         $stmt_attendance = $conn->prepare($sql_attendance);
@@ -59,6 +59,7 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,46 +69,49 @@ $conn->close();
         body {
             background-color: #a5b5bf;
         }
+
         .attendance-container {
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            margin-top: 50px; /* Spacing from the top */
+            margin-top: 50px;
+            /* Spacing from the top */
         }
     </style>
 </head>
+
 <body>
-<div class="container attendance-container">
-    <h1 class="text-center">Attendance for <?php echo htmlspecialchars($student_name); ?></h1>
-    <p><strong>Student ID:</strong> <?php echo htmlspecialchars($sid); ?></p>
-    <p><strong>Total Present Days:</strong> <?php echo $total_present; ?></p>
+    <div class="container attendance-container">
+        <h1 class="text-center">Attendance for <?php echo htmlspecialchars($student_name); ?></h1>
+        <p><strong>Student ID:</strong> <?php echo htmlspecialchars($sid); ?></p>
+        <p><strong>Total Present Days:</strong> <?php echo $total_present; ?></p>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($result_records->num_rows > 0): ?>
-                <?php while ($row = $result_records->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($row['date']); ?></td>
-                        <td><?php echo htmlspecialchars($row['status']); ?></td>
-                    </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td colspan="2">No attendance records found.</td>
+                    <th>Date</th>
+                    <th>Status</th>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php if ($result_records->num_rows > 0): ?>
+                    <?php while ($row = $result_records->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['date']); ?></td>
+                            <td><?php echo htmlspecialchars($row['status']); ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="2">No attendance records found.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
 
-    <a href="manage_students.php" class="btn btn-primary">Back to Manage Students</a>
-</div>
+        <a href="manage_students.php" class="btn btn-primary">Back to Manage Students</a>
+    </div>
 </body>
+
 </html>
-                

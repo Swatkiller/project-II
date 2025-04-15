@@ -2,7 +2,7 @@
 // Database connection
 $servername = "localhost";
 $username = "root";
-$password = "mysql";
+$password = "";
 $dbname = "attendance_sys";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #A5B5BF; /* Background color as per your preference */
+            background-color: #A5B5BF;
+            /* Background color as per your preference */
             color: #333;
             margin: 0;
             padding: 20px;
@@ -75,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-align: center;
         }
 
-        input[type="text"], 
+        input[type="text"],
         textarea {
             width: 80%;
             padding: 10px;
@@ -84,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 10px;
         }
 
-        input[type="submit"], 
+        input[type="submit"],
         button {
             background-color: #2980b9;
             color: white;
@@ -95,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transition: background-color 0.3s ease;
         }
 
-        input[type="submit"]:hover, 
+        input[type="submit"]:hover,
         button:hover {
             background-color: #1c598a;
         }
@@ -108,7 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .button-group a {
-            margin-left: 10px; /* Space between buttons */
+            margin-left: 10px;
+            /* Space between buttons */
         }
 
         table {
@@ -117,7 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
@@ -150,11 +154,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Post Notice</h2>
 
-        <?php if (isset($message)) : ?>
+        <?php if (isset($message)): ?>
             <div class="success-message"><?php echo $message; ?></div>
         <?php endif; ?>
 
@@ -168,6 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </body>
+
 </html>
 
 <?php
