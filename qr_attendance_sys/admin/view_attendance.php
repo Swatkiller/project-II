@@ -78,6 +78,15 @@ $conn->close();
             margin-top: 50px;
             /* Spacing from the top */
         }
+        .h1{
+    text-align: center;
+    color: white;
+    background-color: #2980b9; /* blue background */
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+
+        }
     </style>
 </head>
 
